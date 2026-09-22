@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Night Garden</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="intro-screen" class="intro-screen" aria-label="Night Garden start screen">
+    <div class="intro-orb orb-one"></div><div class="intro-orb orb-two"></div>
+    <div class="intro-card"><p class="eyebrow">A RANDOM NIGHT WALK</p><h1>Night Garden</h1><p>Every walk leads somewhere new.</p><button id="open-rules" class="start-button">START <span>→</span></button></div>
+  </section>
+  <section id="rules-dialog" class="rules-dialog" aria-hidden="true">
+    <div class="rules-card"><p class="eyebrow">BEFORE YOU ENTER</p><h2>How to explore</h2><ol><li>Move your light through the garden.</li><li>Use the scroll wheel to focus or widen the beam.</li><li>Rest the light on every hidden object to discover it.</li></ol><p class="rules-note">Each walk has a new season, place, and 5–8 discoveries.</p><button id="begin-walk" class="start-button">BEGIN WALK <span>→</span></button></div>
+  </section>
+  <main class="app">
+    <header>
+      <p class="eyebrow">A RANDOM NIGHT WALK</p><h1>Night Garden</h1>
+      <p id="scene-description">Every walk reveals a different place.</p>
+    </header>
+    <section class="top-controls" aria-label="Garden settings">
+      <div class="torch-control"><span class="torch-icon">⌁</span><span>SCROLL TO FOCUS</span><span class="beam-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span id="beam-label">WIDE BEAM</span></div>
+      <button id="sound-button" class="sound-button" aria-pressed="false">♪ SOUND ON</button>
+    </section>
+    <section id="garden" class="scene-trail season-spring time-dusk" aria-label="Interactive night garden">
+      <div id="light" aria-hidden="true"></div><div class="moon"></div><div class="stars">✦　·　✧　·　⋆　·　✦　·　✧　·　⋆　·　✦</div>
+      <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="hills hill-back"></div><div class="hills hill-mid"></div><div class="hills hill-front"></div>
+      <div class="pond" aria-hidden="true"></div><div class="trail" aria-hidden="true"></div><div class="tree tree-left">♣</div><div class="tree tree-right">♣</div><div class="vines vines-left">❋<br>❋<br>❋</div><div class="vines vines-right">❋<br>❋<br>❋</div>
+      <!-- JavaScript creates a fresh group of hidden objects here for every walk. -->
+      <div id="secrets-layer" aria-live="polite"></div><div class="grass" aria-hidden="true"></div>
+      <div id="completion" role="status"><span>THE GARDEN REMEMBERS YOU</span><button id="restart" aria-label="Start a new garden walk">↻ <small>NEW WALK</small></button></div>
+    </section>
+    <section class="progress-panel" aria-live="polite"><p><span id="scene-name">Twilight Trail</span> · <span id="found-count">0</span> / <span id="total-count">0</span> discoveries</p><p id="hint" class="hint">Every new walk has a new map and new secrets.</p></section>
+  </main>
+  <audio id="ambient-audio" loop preload="auto"></audio>
+  <audio id="bell-sound" src="audio/bell edit.m4a" preload="auto"></audio>
+  <audio id="success-sound" src="audio/success-sound.mp3" preload="auto"></audio>
+  <audio id="intro-audio" src="audio/relaxing-piano.mp3" loop preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
